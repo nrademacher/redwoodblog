@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -28,6 +28,7 @@ model Contact {
 
 model User {
   id                  Int       @id @default(autoincrement())
+  name                String?
   email               String    @unique
   hashedPassword      String // <─┐
   salt                String // <─┼─ add these lines
